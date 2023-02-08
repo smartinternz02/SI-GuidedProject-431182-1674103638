@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Drug Classification</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .index
+    {
+    margin: 0px;
+    padding:20px;
+    color:black;
+    font-style: bold;
+    border-radius:30px;
+    font-size:25px;
+    }
+    body
+    {
+   /* background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm373batch15-217-01.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&auto=format&ixlib=js-2.2.1&s=1be241faca4a8753b4364f84f144208d");*/
+    background-size: cover;
+    background: #F0E68C;
+    }
+    p
+    {
+    color:black;
+    font-style:italic;
+    font-size:30px;
+    }
+    .text{
+font-size: 12px;   
+ }
+    </style>
+
+</head>
+<body>
+
+<div class="index">
+    <center>
+	    <h1>PREDICTION OF ELCTRICAL OUTPUT POWER OF COMBINED CYCLE POWER PLANT</h1><br>
+        <h6>
+            <p class ="text">Introduction
+                The Combined Cycle Power Plant or combined cycle gas turbine, a gas turbine generator generates electricity and waste heat is used to make steam to generate additional electricity via a steam turbine. The gas turbine is one of the most efficient one for the conversion of gas fuels to mechanical power or electricity. The use of distillate liquid fuels, usually diesel, is also common as alternate fuels.
+                More recently, as simple cycle efficiencies have improved and as natural gas prices have fallen, gas turbines have been more widely adopted for base load power generation, especially in combined cycle mode, where waste heat is recovered in waste heat boilers, and the steam used to produce additional electricity.
+                The basic principle of the Combined Cycle is simple: burning gas in a gas turbine (GT) produces not only power, which can be converted to electric power by a coupled generator, but also fairly hot exhaust gases. Routing these gases through a water-cooled heat exchanger produces steam, which can be turned into electric power with a coupled steam turbine and generator.</p>
+        </h6><br>
+    </center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+<h6>
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="Age" >Ambient Temparature(AT):</label><br>
+        <input type="text" id="AT" name="AT"  required="required"/><br><br>
+        <label for="Age" >Ambient Pressure(AP):</label><br>
+        <input type="text" id="AP" name="AP"  required="required"/><br><br>
+        <label for="Age" >Exhaust Vaccum(V):</label><br>
+        <input type="text" id="V" name="V" required="required"/><br><br>
+        <label for="Age" >Relative Humidity(RH):</label><br>
+        <input type="text" id="RH" name="RH"  required="required"/><br><br>
+       
+        
+
+        <button type="submit" class="btn btn-primary btn-block ">Predict</button>
+    </form>
+    <br>
+</h6>
+    <h3>
+            {{ prediction_text }}
+    </h3>
+
+</div>
+
+</body>
+</html>
